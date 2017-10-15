@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 不打开动态语句 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<!-- 不用重新部署重启web服务器 -->
+    <constant name="struts.devMode" value="true" />
+    <package name="default" namespace="/" extends="struts-default">
+	
+		<action name="teacher-*" class="TeacherAction" method="{1}">
+			<result name="list">/WEB-INF/views/teacher-list.jsp</result>
+			<result name="login-success">/WEB-INF/views/login-success.jsp</result>
+			<result name="login-failed">/WEB-INF/views/login-failed.jsp</result>
+		</action>
+		
+		<action name="login"   class="TeacherAction"  method="login">
+			<result name="success" type="">/WEB-INF/views/teacher-list.jsp</result>
+			<result name="fail">/WEB-INF/views/login-success.jsp</result>
+		</action>
+
+		
+
+	</package>
+	
+
+</struts>	
+	
+	
